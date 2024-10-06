@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 6
+names: ['No', 'Please', 'Thanks', 'hello', 'iloveyou', 'yes']
+
+roboflow:
+  workspace: aman-sikarwar
+  project: sign-language-project-qwo9c
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/aman-sikarwar/sign-language-project-qwo9c/dataset/1
