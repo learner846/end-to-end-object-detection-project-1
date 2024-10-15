@@ -1,22 +1,30 @@
-from signlanguage.logger import logger
-from signlanguage.exception import SignException
-import sys
+# from signlanguage.pipeline.training_pipeline import TrainPipeline
 
-#logging.info("Welcome to the project")
+# obj = TrainPipeline()
+# obj.run_pipeline()
 
-#import logging
+import logging
+import os
+from signlanguage.pipeline.training_pipeline import TrainPipeline
 
-# logger = logging.getLogger(__name__)
-# logger.setLevel(logging.INFO)
+# Create a logs directory if it doesn't exist
+log_dir = "logs"
+os.makedirs(log_dir, exist_ok=True)
 
-# file_handler = logging.FileHandler("my_log.log")
-# formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-# file_handler.setFormatter(formatter)
-# logger.addHandler(file_handler)
+# Log file path
+log_file_path = os.path.join(log_dir, "app.log")
 
-#logger.info("Welcome to the project")
-try:
-    a = 7/'9'
+# Configure logging
+logging.basicConfig(
+    filename=log_file_path,
+    filemode='a',  # Append mode ('w' for overwrite)
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.INFO,  # Set the minimum log level to INFO
+)
 
-except Exception as e:
-    raise SignException(e, sys) from e
+# Run the pipeline
+if __name__ == "__main__":
+    obj = TrainPipeline()
+    obj.run_pipeline()
+
+    logging.info("Pipeline run completed.")

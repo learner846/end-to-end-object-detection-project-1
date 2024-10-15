@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 6
+names: ['No', 'Please', 'Thanks', 'hello', 'iloveyou', 'yes']
+
+roboflow:
+  workspace: object-detection-bvxsa
+  project: object-detection-smge4
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/object-detection-bvxsa/object-detection-smge4/dataset/1
