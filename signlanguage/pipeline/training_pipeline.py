@@ -139,38 +139,37 @@ import sys, os
 from signlanguage.logger import logging
 from signlanguage.exception import SignException
 from signlanguage.components.data_ingestion import DataIngestion
-#<<<<<<< HEAD
-#from signlanguage.components.data_validation import DataValidation
-# from signlanguage.components.model_trainer import ModelTrainer
+from signlanguage.components.data_validation import DataValidation
+from signlanguage.components.model_trainer import ModelTrainer
 # from signlanguage.components.model_pusher import ModelPusher
 # from signlanguage.configuration.s3_operations import S3Operation
 
 
-from signlanguage.entity.config_entity import (DataIngestionConfig)
-                                            #    DataValidationConfig,
-                                            #    ModelTrainerConfig,
-                                            #    ModelPusherConfig)
-
-
-from signlanguage.entity.artifacts_entity import (DataIngestionArtifact)
-                                                #   DataValidationArtifact,
-                                                #   ModelTrainerArtifact,
-
-from signlanguage.components.data_validation import DataValidation
-from signlanguage.components.model_trainer import ModelTrainer
-# from signLanguage.components.model_pusher import ModelPusher
-# from signLanguage.configuration.s3_operations import S3Operation
-
-
 from signlanguage.entity.config_entity import (DataIngestionConfig,
-                                               DataValidationConfig,ModelTrainerConfig)
-                                               #ModelTrainerConfig)
-                                               #ModelPusherConfig)
+                                                DataValidationConfig,
+                                                ModelTrainerConfig)
+                                            #    ModelPusherConfig)
 
 
 from signlanguage.entity.artifacts_entity import (DataIngestionArtifact,
                                                   DataValidationArtifact,
-                                                   ModelTrainerArtifact)
+                                                  ModelTrainerArtifact)
+
+#from signlanguage.components.data_validation import DataValidation
+#from signlanguage.components.model_trainer import ModelTrainer
+# from signLanguage.components.model_pusher import ModelPusher
+# from signLanguage.configuration.s3_operations import S3Operation
+
+
+#from signlanguage.entity.config_entity import (DataIngestionConfig,
+                                               #DataValidationConfig,ModelTrainerConfig)
+                                               #ModelTrainerConfig)
+                                               #ModelPusherConfig)
+
+
+# from signlanguage.entity.artifacts_entity import (DataIngestionArtifact,
+#                                                   DataValidationArtifact,
+#                                                    ModelTrainerArtifact)
 #>>>>>>> 4f5404e (Some changes)
                                                 #   ModelPusherArtifacts)
 
@@ -178,13 +177,11 @@ from signlanguage.entity.artifacts_entity import (DataIngestionArtifact,
 class TrainPipeline:
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
-#<<<<<<< HEAD
-        # self.data_validation_config = DataValidationConfig()
-        # self.model_trainer_config = ModelTrainerConfig()
-#=======
         self.data_validation_config = DataValidationConfig()
         self.model_trainer_config = ModelTrainerConfig()
-#>>>>>>> 4f5404e (Some changes)
+
+        
+
         # self.model_pusher_config = ModelPusherConfig()
         # self.s3_operations = S3Operation()
 
@@ -210,10 +207,6 @@ class TrainPipeline:
             return data_ingestion_artifact
 
         except Exception as e:
-#<<<<<<< HEAD
-            logging.error(f"Error in start_data_ingestion: {e}")
-#=======
-#>>>>>>> 4f5404e (Some changes)
             raise SignException(e, sys)
         
 
